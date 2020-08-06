@@ -1,0 +1,41 @@
+
+@model ChampApp.Models.Productos
+@{
+    Layout = Url.Content("~/Views/Shared/_Layout2.cshtml");
+}
+    <center>
+        <div class="col-md-10">
+            <h1 class="display-4">Edit un producto</h1>
+            @using (Html.BeginForm("Edit", "Producto", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <form class="container">
+                    <div class="form-input col-xl-5 input-group-lg  w-100 p-3 h-75" style="width: 100px; height: 100px; background-color: rgba(0,0,255,0.1);">
+                        @Html.TextBoxFor(m => m.nombre, null, new { @placeholder = "Nombre", @class = "form-control" })
+                    </div>
+                    <div class="form-input col-xl-5 input-group-lg w-100 p-3 h-75  d-inline-block" style="width: 100px; height: 200px; background-color: rgba(0,0,255,0.1);">
+                        @Html.TextBoxFor(m => m.NameFile, null, new { @type = "File" })
+                    </div>
+                    <div class="form-input col-xl-5 input-group-lg w-100 p-3 h-75" style="width: 100px; height: 200px; background-color: rgba(0,0,255,0.1);">
+                        @Html.TextBoxFor(m => m.stock, null, new { @placeholder = "Stock", @class = "form-control" })
+                    </div>
+                    <div class="form-input col-xl-5 input-group-lg w-100 p-3 h-75" style="width: 100px; height: 200px; background-color: rgba(0,0,255,0.1);">
+                        @Html.TextBoxFor(m => m.precio, null, new { @placeholder = "Precio", @class = "form-control" })
+                    </div>
+                    <div class="form-input col-xl-5 input-group-lg w-100 p-3 h-75" style="width: 100px; height: 200px; background-color: rgba(0,0,255,0.1);">
+                        @Html.TextBoxFor(m => m.descripcion, null, new { @placeholder = "Descripcion", @class = "form-control" })
+                    </div><br />
+
+                    <input type="submit" class="btn btn-outline-success btn-lg" value="Enviar">
+
+                </form>
+            }
+        </div>
+    </center>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

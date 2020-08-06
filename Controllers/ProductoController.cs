@@ -29,14 +29,109 @@ namespace ChampApp.Controllers
         {
             return View();
         }
-          public IActionResult Detalle(int id)
+        public async Task<IActionResult> Detalle(int? id)
         {
-            return View(id);
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var productos = await _context.productos
+                .FirstOrDefaultAsync(m => m.id == id);
+            if (productos == null)
+            {
+                return NotFound();
+            }
+
+            return View(productos);
         }
         public IActionResult Create()
         {
             return View();
         }
+        public async Task<IActionResult> Lista()
+        {
+            return View(await _context.productos.ToListAsync());
+        }
+        public async Task<IActionResult> Edit(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var productos = await _context.productos.FindAsync(id);
+            if (productos == null)
+            {
+                return NotFound();
+            }
+            return View(productos);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int id, [Bind("id,nombre,foto,stock,precio,descripcion")] Productos productos)
+        {
+            if (id != productos.id)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(productos);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!ProductosExists(productos.id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            return View(productos);
+        }
+
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var productos = await _context.productos
+                .FirstOrDefaultAsync(m => m.id == id);
+            if (productos == null)
+            {
+                return NotFound();
+            }
+
+            return View(productos);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var productos = await _context.productos.FindAsync(id);
+            _context.productos.Remove(productos);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+
+        private bool ProductosExists(int id)
+        {
+            return _context.productos.Any(e => e.id == id);
+        }
+
         [HttpPost]
         public async Task<IActionResult> Create(Productos p)
         {
