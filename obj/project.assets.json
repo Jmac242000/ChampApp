@@ -5007,11 +5007,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User\\Desktop\\ChampApp\\ChampApp.csproj",
+      "projectUniqueName": "C:\\Users\\User\\Desktop\\ChampAppFinal\\ChampApp.csproj",
       "projectName": "ChampApp",
-      "projectPath": "C:\\Users\\User\\Desktop\\ChampApp\\ChampApp.csproj",
+      "projectPath": "C:\\Users\\User\\Desktop\\ChampAppFinal\\ChampApp.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\User\\Desktop\\ChampApp\\obj\\",
+      "outputPath": "C:\\Users\\User\\Desktop\\ChampAppFinal\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

@@ -1,15 +1,19 @@
 ﻿@model IEnumerable<ChampApp.Models.Productos>
-
-<div>
-    @foreach (var item in Model)
-    {
-        <div class="card" style="width: 30rem;">
-        <img class="card-img-top" src="https://images-na.ssl-images-amazon.com/images/I/91RGYokL4RL._AC_SL1500_.jpg" alt="Card image cap">
-        <div class="card-body">
-         <h5 class="card-title">Nombre del producto</h5>
-         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-         <a asp-action="Detalle" asp-controller="Producto" class="btn btn-primary">Ver producto</a>
-  </div>
-</div>
-    }
-</div>
+  
+        <div>
+            @foreach (var item in Model)
+            {
+                <div class="card" style="width: 30rem;">
+                    <div class="inner">
+                        <img class="img-fluid " src="@Html.DisplayFor(modelItem => item.foto)" alt="Productos">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">@Html.DisplayFor(modelItem => item.nombre)</h5>
+                        <h6 class="card-text">RD$ @Html.DisplayFor(modelItem => item.precio)</h6>
+                        <p class="card-text">@Html.DisplayFor(modelItem => item.descripcion)</p>
+                        <a asp-action="Detalle" asp-controller="Producto" class="btn btn-primary">Ver producto</a>
+                    </div>
+                </div>
+            }
+        </div>
+    
