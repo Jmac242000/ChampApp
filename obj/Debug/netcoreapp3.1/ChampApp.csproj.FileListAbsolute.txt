@@ -344,3 +344,6 @@ C:\Users\User\Source\Repos\ChampApp\obj\Debug\netcoreapp3.1\staticwebassets\Cham
 C:\Users\User\Source\Repos\ChampApp\obj\Debug\netcoreapp3.1\ChampApp.dll
 C:\Users\User\Source\Repos\ChampApp\obj\Debug\netcoreapp3.1\ChampApp.pdb
 C:\Users\User\Source\Repos\ChampApp\obj\Debug\netcoreapp3.1\ChampApp.genruntimeconfig.cache
+C:\Users\User\Source\Repos\ChampApp\obj\Debug\netcoreapp3.1\Razor\Views\Producto\Delete.cshtml.g.cs
+C:\Users\User\Source\Repos\ChampApp\obj\Debug\netcoreapp3.1\Razor\Views\Producto\Edit.cshtml.g.cs
+C:\Users\User\Source\Repos\ChampApp\obj\Debug\netcoreapp3.1\Razor\Views\Producto\Lista.cshtml.g.cs
