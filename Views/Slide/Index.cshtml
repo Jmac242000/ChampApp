@@ -1,0 +1,12 @@
+﻿@{
+    Layout = Url.Content("~/Views/Shared/_Layout2.cshtml");
+}
+@model ChampApp.Models.Slide
+<h1>Slider</h1>
+<div>
+    @using (Html.BeginForm("Create", "Slide", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.TextBoxFor(m => m.NameFile, null, new { @type = "file" })
+        <button class="btn btn-primary">Agregar</button>
+    }
+</div>

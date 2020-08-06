@@ -1,0 +1,70 @@
+﻿@model ChampApp.Models.Usuario
+
+@{
+    Layout = null;
+}
+
+</div>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Registro</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="~/css/registro.css" />
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-lg-6 col-md-6 form-container">
+				<div class="col-lg-8 col-md-12 col-sm-9 col-xs-12 form-box text-center">
+					<div class="logo mt-5 mb-3">
+						<img src="/img/logo2.png" width="200px">
+					</div>
+					<div class="heading mb-3">
+						<h4>Crear una cuenta</h4>
+					</div>
+                    @using (Html.BeginForm())
+                    {
+                        <form>
+						<div class="form-input">
+							<span><i class="fa fa-user"></i></span>
+							@Html.TextBoxFor(m => m.nombre, null, new { @class = "nombre", @placeholder="Nombres" })
+						</div>
+                        <div class="form-input">
+							<span><i class="fa fa-user"></i></span>
+                            @Html.TextBoxFor(m => m.apellido, null, new { @class = "apellido", @placeholder="Apellidos" })
+						</div>
+                        <div class="form-input">
+							<span><i class="fa fa-calendar"></i></span>
+							@Html.TextBoxFor(m => m.fecha, null, new { @class = "fecha", @placeholder="fecha de nacimiento", @type = "Date" })
+						</div>
+						<div class="form-input">
+							<span><i class="fa fa-envelope"></i></span>
+							@Html.TextBoxFor(m => m.correo, null, new { @class = "correo",  @type="email", @placeholder="Email"})
+						</div>
+						<div class="form-input">
+							<span><i class="fa fa-lock"></i></span>
+							@Html.PasswordFor(m => m.clave, new {@class = "clave", @type="password", @placeholder="Contraseña" })
+						</div>
+						<div class="text-left mb-3">
+							<button type="submit" class="btn">Register</button>
+						</div>
+						<div class="text-black">Ya tienes una cuente?
+							<a  asp-action="Login" asp-controller="Account">Logeate aqui</a>
+						</div>
+					    </form>
+                    }
+				</div>
+			</div>
+
+			<div class="col-lg-6 col-md-6 d-none d-md-block image-container"></div>
+		</div>
+	</div>
+</body>
+</html>
+
+

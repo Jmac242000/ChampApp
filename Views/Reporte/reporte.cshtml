@@ -1,0 +1,26 @@
+@model ChampApp.Models.reporte
+@{
+    Layout = Url.Content("~/Views/Shared/_Layout2.cshtml");
+}
+    <center>
+        <div class="col-md-10">
+            <h1 class="display-4">Crear un Reporte</h1>
+            @using (Html.BeginForm( FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <form class="container">
+                    <div class="form-input col-xl-5 input-group-lg  w-100 p-3 h-75" style="width: 100px; height: 100px; background-color: rgba(0,0,255,0.1);">
+                        @Html.TextBoxFor(m => m.nombre, null, new { @placeholder = "Nombre del producto", @class = "form-control" })
+                    </div>
+                    <div class="form-input col-xl-5 input-group-lg w-100 p-3 h-75" style="width: 100px; height: 200px; background-color: rgba(0,0,255,0.1);">
+                        @Html.TextBoxFor(m => m.Correo, null, new { @placeholder = "Correo", @class = "form-control", @type ="Email" })
+                    </div>
+                    <div class="form-input col-xl-5 input-group-lg w-100 p-3 h-75" style="width: 100px; height: 200px; background-color: rgba(0,0,255,0.1);">
+                        @Html.TextBoxFor(m => m.descripcion, null, new { @placeholder = "Descripcion", @class = "form-control", @type ="text" })
+                    </div><br />
+
+                    <input type="submit" class="btn btn-outline-success btn-lg" value="Enviar">
+
+                </form>
+            }
+        </div>
+    </center>

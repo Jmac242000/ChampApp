@@ -1,0 +1,56 @@
+﻿@model ChampApp.Models.Usuario
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="~/css/Style.css" />
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-lg-6 col-md-6 form-container">
+				<div class="col-lg-8 col-md-12 col-sm-9 col-xs-12 form-box text-center">
+					<div class="logo mt-5 mb-3">
+						<img src="/img/logo2.png" width="200px">
+					</div>
+					<div class="heading mb-3">
+						<h4>Logeate con tu cuenta</h4>
+					</div>
+
+					@using (Html.BeginForm())
+   				 {
+						<form>
+						<div class="form-input">
+							<span><i class="fa fa-envelope"></i></span>
+							@Html.TextBoxFor(m => m.correo, null, new { @class = "correo",  @type="email", @placeholder="Email"})
+						</div>
+						<div class="form-input">
+							<span><i class="fa fa-lock"></i></span>
+							@Html.PasswordFor(m => m.clave, new {@class = "clave", @type="password", @placeholder="Contraseña" })
+						</div>
+						<div class="text-left mb-3">
+							<button type="submit" class="btn">Login</button>
+						</div>
+						<div class="text-black">No tienes una cuenta?
+							<a asp-action="Register" asp-controller="Account">Registrate aqui</a>
+						</div>
+						
+					</form>
+				}
+					
+				</div>
+			</div>
+
+			<div class="col-lg-6 col-md-6 d-none d-md-block image-container"></div>
+		</div>
+	</div>
+</body>
+</html>

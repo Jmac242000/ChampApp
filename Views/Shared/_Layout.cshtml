@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Shamp</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!-- Add meta tags for mobile and IE -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-xl">
+            <div class="col-md-3">
+                <a asp-action="Index" asp-controller="Home"><img src="/img/logo.png" height="50" width="100" /></a>
+            </div>
+             <form class="form-inline">
+                 
+                     <div class="form-input col-xl-5 input-group-lg  w-100 p-3 h-75" >
+                         <input class="form-control" type="search" placeholder="Buscar">
+                     </div>
+                     <div class="form-input col-xl-5 input-group-lg  w-100 p-3 h-75" >
+                         <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Buscar</button>
+                     </div>
+            </form>
+            <div class="col-md-2 ">
+                <a class="text-white" asp-action="Login" asp-controller="Account">Iniciar Sesion</a>
+            </div>
+            <div class="col-md-2">
+               <a asp-action="carrito" asp-controller="Home"><img src="/img/carrito.png" height="50" width="90" /></a>
+            </div>
+        </nav>
+    </header>
+    <div>
+        <main role="main">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            <div class="footer-copyright text-center py-3">
+                &copy; @DateTime.Now.Year- Champ
+            </div>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
