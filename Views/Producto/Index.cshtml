@@ -1,19 +1,24 @@
 ﻿@model IEnumerable<ChampApp.Models.Productos>
   
-        <div>
-            @foreach (var item in Model)
-            {
-                <div class="card" style="width: 30rem;">
-                    <div class="inner">
-                        <img class="img-fluid " src="/wwwroot/img/Producto/@Html.DisplayFor(modelItem => item.foto)" alt="Productos">
+    <div>
+        @foreach (var item in Model)
+        {
+            <div class="row">
+                <div class="col">
+                    <div class="card" style="width: 30rem;">
+                        <div class="inner">
+                            <img class="img-fluid " src="~/img/Producto/@Html.DisplayFor(modelItem => item.foto)" alt="Productos">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">@Html.DisplayFor(modelItem => item.nombre)</h5>
+                            <h6 class="card-text">RD$ @Html.DisplayFor(modelItem => item.precio)</h6>
+                            <p class="card-text">@Html.DisplayFor(modelItem => item.descripcion)</p>
+                            <a asp-action="Detalle" asp-route-id="@item.id" asp-controller="Producto" class="btn btn-primary">Ver producto</a>
+                        </div>
                     </div>
-                    <div class="card-body">
-                        <h5 class="card-title">@Html.DisplayFor(modelItem => item.nombre)</h5>
-                        <h6 class="card-text">RD$ @Html.DisplayFor(modelItem => item.precio)</h6>
-                        <p class="card-text">@Html.DisplayFor(modelItem => item.descripcion)</p>
-                        <a asp-action="Detalle" asp-controller="Producto" class="btn btn-primary">Ver producto</a>
-                    </div>
+
                 </div>
-            }
-        </div>
+            </div>
+        }
+    </div>
     

@@ -15,5 +15,7 @@ namespace ChampApp.Data
         public DbSet<Usuario> usuarios { get; set; }
         public DbSet<Productos> productos { get; set; }
         public DbSet<Slide> slides { get; set; }
+        public object Product { get; internal set; }
+        public object Producto { get; internal set; }
     }
 }

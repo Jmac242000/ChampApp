@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using ChampApp.Models;
 using ChampApp.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace ChampApp.Controllers
 {
@@ -19,9 +20,9 @@ namespace ChampApp.Controllers
             _context = context;
             _iwebhost = iwebhost;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            return View(await _context.slides.ToListAsync());
         }
         public async Task<IActionResult> Create(Slide s)
         {
@@ -40,5 +41,6 @@ namespace ChampApp.Controllers
 
             return RedirectToAction(nameof(Index));
         }
+
     }
 }

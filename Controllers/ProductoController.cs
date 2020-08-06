@@ -29,10 +29,23 @@ namespace ChampApp.Controllers
         {
             return View();
         }
-          public IActionResult Detalle(int id)
+        public async Task<IActionResult> Detalle(int? id)
         {
-            return View(id);
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var productos = await _context.productos
+                .FirstOrDefaultAsync(m => m.id == id);
+            if (productos == null)
+            {
+                return NotFound();
+            }
+
+            return View(productos);
         }
+
         public IActionResult Create()
         {
             return View();

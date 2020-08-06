@@ -1,4 +1,4 @@
-
+@model ChampApp.Models.Productos
 <style>
     body{
         background: rgb(219, 226, 226);
@@ -17,26 +17,23 @@
     <div class="col-8">
     <div class="row no-gutters">
             <div class="col-lg-6">
-                <img src="https://tynmedia.com/tynmag/wp-content/uploads/sites/3/2019/07/iPhone_X_family_line_up_big.jpg.large_.jpg" class="img-fluid" alt="">
+                <img src="~/img/Producto/@Html.DisplayFor(item => item.foto)" class="img-fluid" alt="">
             </div>
             <div class="col-lg-6">
-               <h1 class="font-weight-bold py-3">Nombre del producto</h1>
+                <h1 class="font-weight-bold py-3">@Html.DisplayFor(item => item.nombre)</h1>
                 <h2>Descripcion:</h2>
-               <p>Aqui ira una pequena Descripcion de el producto hablando de 
-                   el producto, para que el usuario sepa de que es o de que trata el producto
-                   y/o conozca nuevos productos  
-                </p>
+                <p>@Html.DisplayFor(item => item.descripcion)</p>
                 <br />
                <h2>Precio</h2>
                <input type="number" placeholder="Cantidad de producto" class="form-control">
-               <h2>Total: RD$ precio x Cantidad</h2>
+               <h2>RD$ @Html.DisplayFor(item => item.precio)</h2>
         </div>
    </div>
 </div>
             
-            <div class="col-4">
-                <partial name="/Views/Shared/_paypal.cshtml" />
-            </div>
+<div class="col-4">
+    <partial name="/Views/Shared/_paypal.cshtml" />
+</div>
             
 </div>
 </div>
