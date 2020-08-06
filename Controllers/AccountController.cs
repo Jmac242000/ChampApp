@@ -6,10 +6,15 @@ using Microsoft.AspNetCore.Mvc;
 using ChampApp.Models;
 using Microsoft.AspNetCore.Authorization;
 
-namespace Shamp.Controllers
+namespace ChampApp.Controllers
 {
     public class AccountController : Controller
     {
+        private readonly ChampContext _context;
+
+        public AccountController(ChampContext context){
+            _context=context;
+        }
         public IActionResult Index()
         {
             return View();
@@ -19,8 +24,22 @@ namespace Shamp.Controllers
         {
             return View();
         }
-        public IActionResult Register()
+        [httpPost]
+        public IActionResult Login(string correo, string clave)
         {
+
+            var isvalidate=new LoginSevices();
+            if(isvalidate.GetLogin(string correo,string clave)==true){
+                return RedirectToAction("/Controllers/Home/Index")
+            }
+            return View();
+        }
+        public async Task<IActionResult> Register(Usuario user)
+        {
+            if(model.isvalid){
+                _context.Usuario.add(user);
+                _context.SaveAsync();
+            }
             return View();
         }
         public IActionResult Create(Usuario user)
